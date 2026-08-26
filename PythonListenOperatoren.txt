@@ -1,0 +1,26 @@
+Listen erzeugen und verändern:
+    liste=[] # leere Liste erzeugen
+    liste=[3,12,17,8] # Liste aus diesen Zahlen erzeugen
+    liste=[0]*20 # Liste aus 20 Nullen erzeugen
+    liste[3]=14 # Einelne Listenelemente verändern
+    # Achtung! Nummerierung beginnt mit 0
+    liste = [2*x for x in range(10)] # liefert [0,2,4,...,18]
+Elemente oder Teillisten abfragen: (Beachte die negativen Indizes!)
+    liste[x] # liefert das Element an Index x
+    liste[2:5] # liefert Elemente 3,4,5 der Liste als Liste
+    liste[-1] # liefert das letzte Element; -2 das vorletzte etc.
+    liste[1:] # liefert alle Elemente der Liste außer Element 0
+    liste[:-2] # liefert alle Elemente außer den letzten beiden
+Sonstige interessante Listen-Operationen:
+    len(liste) # liefert die Anzahl der Elemente der Liste
+    liste.count(x) # liefert, wie oft x in der Liste vorkommt
+    liste.index(x) # liefert die Position des 1. Auftretens von x
+    sum(liste) # liefert die Summe aller Listenelemente
+    liste.append(x) # Hängt Element x hinten an die Liste an
+    liste.insert(a,x) # Fügt an Index a das Element x in die Liste ein
+    del liste[a] # löscht das Element an Index a aus der Liste
+    liste.remove(x) # Sucht das Element x in der Liste und löscht es
+    liste.extend(b) # Hängt Liste b an liste an
+    liste.pop(a) # liefert liste[a] und löscht es aus der Liste
+    liste.reverse() # Kehrt die Reihenfolge alle Listenelemente um
+    liste.sort() # sortiert die Liste aufsteigend
