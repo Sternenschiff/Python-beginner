@@ -1,0 +1,105 @@
+from adt import Stack; import random; hoehe = 10; breite = 10;
+feld = [[random.randint(0,9) for _ in range(hoehe)] for _ in range(breite)]
+     
+for _ in feld:
+    print(_)
+
+    print("aufgabe 1")
+    def aufgabeB():
+        counter=0;summe=0
+        for x in range(hoehe):
+            for y in range(breite):
+                counter +=1
+                summe = summe + feld[x][y]
+        durchs=summe//counter
+        print("durchschnitt",durchs)
+        
+    def aufgabeC():
+        seevencounter = 0
+        for x in range(hoehe):
+            for y in range(breite):
+                if feld[x][y] == 7:
+                    seevencounter += 1
+        for _ in feld:
+            print(_)
+        print("es gibt",seevencounter,"siebenen")
+    
+    def aufgabeD():
+        for x in range(hoehe):
+            for y in range(breite):
+                if feld[x][y] < 4:
+                    feld[x][y] = 0
+        print("alles kleiner 4 durch 0 ersetzt:")
+        for _ in feld:
+            print(_)
+    def aufgabeE():
+        print("alles wieder auf zufall gesetzt")
+        feld = [[random.randint(0,9) for _ in range(hoehe)] for _ in range(breite)]
+        for _ in feld:
+            print(_)
+    def aufgabeFGH():
+        feld = [[random.randint(0,9) for _ in range(hoehe)] for _ in range(breite)]
+        s = Stack()
+        for x in range(hoehe):
+            for y in range(breite):
+                if feld[x][y] == 8:
+                    s.push((x,y))
+        print("ganzes feld mit einsen füllen")
+        feld = [[1 for _ in range(hoehe)] for _ in range(breite)]
+        for _ in feld:
+            print(_)
+        #aufgabe H im anschluss(zusammen in einer funktion um stack nicht neu zu definieren müssen) also alles mit 1 füllen und dann direkt 8 einsetzten
+        print("positionen von 8 rekonstruieren")
+        while not s.isEmpty():
+            (x,y)=s.pop()
+            feld[x][y] = 8
+        print("das ist der stack")
+        print(s)
+        for _ in feld:
+            print(_)
+            
+        #ERKLÄRUNG funktion "aufgabeFHG" die teilaufgaben F-H beziehen sich alle aufeinander. die positionen von 8 müssen gespeichert werden und später
+        # - aufgerufen werden, daher macht es sinn die SELBEN variablen zu verwenden. bei neuen funktionen (zB. aufgabef, aufgabeg,etc würden neue variablen
+        # - geschrieben, mit denen nicht weitergearbeitet werden kann. bei fragen an jonas.tetzner@iserv-gaw.de schreiben (mit screenshot oder code ausschnitt)
+        
+        
+    def aufgabeIJ():
+        print("feld wird neu erstellt, es werden alle 5 herum ersetzt")
+        # Reihenfolge korrigiert: hoehe = Zeilen, breite = Spalten
+        feld = [[random.randint(0, 9) for _ in range(breite)] for _ in range(hoehe)]
+        s = Stack()
+    
+        for zeile in feld:
+            print(zeile)
+        
+        for x in range(hoehe):
+            for y in range(breite):
+                if feld[x][y] == 5:
+                    s.push((x, y))
+                
+        print("dies dient als abtrennung")
+    
+        # Koordinaten aus dem Stack holen (passe ggf. s.is_empty() an deine Stack-Klasse an)
+        while not s.isEmpty(): 
+            x, y = s.pop()
+        
+            if x > 0:
+                feld[x - 1][y] = ":"
+            if x < hoehe - 1:
+                feld[x + 1][y] = ":"
+            if y > 0:
+                feld[x][y - 1] = ":"
+            if y < breite - 1:
+                feld[x][y + 1] = ":"
+            
+        for zeile in feld:
+            print(zeile)
+                             
+aufgabeB()
+aufgabeC()
+aufgabeD()
+aufgabeE()
+aufgabeFGH()
+aufgabeIJ()
+
+
